@@ -28,3 +28,12 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
+      
+    - name: Checkout
+      uses: actions/checkout@v1
+  
+
+    - name: run test.sh
+      shell: bash
+      run: ./run.sh
+      
