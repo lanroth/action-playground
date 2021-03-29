@@ -32,8 +32,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
   
+    - run: mkdir dist
+    - run: echo hello > dist/world.txt
+    - run: set > dist/env.txt
+    - run: touch dist/BRANCH-${GITHUB_BRANCH}
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: dist/
 
-    - name: run test.sh
-      shell: bash
-      run: ./run.sh
+#     - name: run test.sh
+#       shell: bash
+#       run: ./run.sh
       
